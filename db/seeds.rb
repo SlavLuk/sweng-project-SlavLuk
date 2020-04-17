@@ -1,7 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# @countries = [{:country_name =>'USA'},{:country_name =>'England'},{:country_name =>'Ireland'}]
+
+# @countries.each do |country|
+#   Country.create!(country)
+# end
+
+ country_1 = Country.create!(:country_name=>'Ireland')
+ country_2 = Country.create!(:country_name=>'USA')
+ country_3 = Country.create!(:country_name=>'England')
+
+city = City.create!(:city_name => 'Galway', :mayor => 'Peter Larkin', 
+            :population => 75000, :isCostal => true, :country =>country_1)
+city_1 = City.create!(:city_name => 'Tampa', :mayor => '', 
+            :population => 100000, :isCostal => true, :country =>country_2)
+city_2 = City.create!(:city_name => 'London', :mayor => 'Boris Johns', 
+            :population => 7500000, :isCostal => false, :country =>country_3)
+city_3 = City.create!(:city_name => 'Cork', :mayor => 'John Smith', 
+            :population => 350000, :isCostal => true, :country =>country_1)
+city_4 = City.create!(:city_name => 'New York', :mayor => 'Govanni Perry', 
+            :population => 1000000, :isCostal => true, :country =>country_2)
+city_5 = City.create!(:city_name => 'Liverpool', :mayor => '', 
+            :population => 3000000, :isCostal => true, :country =>country_3)
+
+        
+
+
