@@ -1,0 +1,27 @@
+%h1 Editing City
+= form_tag update_path(@city), :method => :put do
+
+ 
+  
+  = label :city, :city_name,'City'
+  = text_field :city, 'city_name'
+  
+  
+  = label :city, :mayor, 'Mayor' 
+  = text_field :city,'mayor'
+
+  = label :city, :population,'Population'
+  = number_field :city, 'population'
+  
+  
+  = label :city, :isCostal, 'By Sea' 
+  = check_box :city,'isCostal'
+
+  = label :city, :country_id,'Country'
+  = text_field :city, 'country_id'
+  
+  
+  = submit_tag 'Save Changes', :class => 'btn btn-primary'
+= link_to 'Show', cities_path
+
+= link_to 'Back', cities_path

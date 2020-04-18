@@ -1,0 +1,19 @@
+%p
+%p
+  %strong City name:
+  = @city.city_name
+%p
+  %strong Mayor:
+  = @city.mayor
+%p
+  %strong Population:
+  = @city.population
+%p
+  %strong By Sea:
+  = @city.isCostal
+%p
+  %strong Country:
+  = @city.country.country_name
+= link_to 'Edit', edit_city_path(@city)
+
+= link_to 'Back', cities_path
