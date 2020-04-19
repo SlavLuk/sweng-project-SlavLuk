@@ -18,10 +18,10 @@
   = check_box :city,'isCostal'
 
   = label :city, :country_id,'Country'
-  = text_field :city, 'country_id'
+  = hidden_field  :city, 'country_id'
   
   
   = submit_tag 'Save Changes', :class => 'btn btn-primary'
-= link_to 'Show', cities_path
+
 
 = link_to 'Back', cities_path

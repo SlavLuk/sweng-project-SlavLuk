@@ -6,6 +6,7 @@ class CitiesController < ApplicationController
   def index
     @cities = City.joins(:country)
     
+    # @cities = City.joins(:country).select('cities.city_name, countries.country_name')
  
 
   end
@@ -18,7 +19,10 @@ class CitiesController < ApplicationController
 
   # GET /cities/new
   def new
-    @city = City.new
+  
+
+    
+    # @city = City.new
   end
 
   # GET /cities/1/edit
@@ -29,13 +33,11 @@ class CitiesController < ApplicationController
   # POST /cities
   # POST /cities.json
   def create
-   
-
-    @city = City.find params[:id]
-    @city.update_attributes!(city_params)
-    flash[:notice] = "#{@city.city_name} was successfully updated."
-    redirect_to cities_path(@city)
-
+    # @country = Country.create!('Russia')
+    
+    @city = City.create!(city_params)
+    flash[:notice] = "#{@city.city_name} was successfully created."
+    # redirect_to movies_path
   
   end
 
@@ -55,7 +57,7 @@ class CitiesController < ApplicationController
    
     @city = City.find params[:id]
     @city.destroy
-    flash[:notice] = "Movie '#{@city.city_name} ' deleted."
+    flash[:notice] = "City '#{@city.city_name} ' deleted."
     redirect_to cities_path(@city)
   end
 
