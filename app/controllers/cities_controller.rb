@@ -46,10 +46,10 @@ class CitiesController < ApplicationController
   def update
   
     @city = City.find params[:id]
-    @city.update_attributes!(city_params)
     @country =Country.find(@city.country_id)
+    @city.update_attributes!(city_params)
     @country.update_attributes(country_params)
-    flash[:notice] = "#{@country.country_name} was successfully updated."
+    flash[:notice] = "#{@city.city_name} was successfully updated."
     redirect_to cities_path(@city)
   end
 
