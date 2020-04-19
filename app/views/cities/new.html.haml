@@ -1,3 +1,25 @@
-%h1 New City
-= render 'form'
-= link_to 'Back', cities_path
+%h1 Create New City
+= form_tag cities_path, :method => :post do
+
+ 
+  = label :city, :city_name,'City',:class=>'font-weight-bold'
+  = text_field :city, 'city_name', :class =>"col-md-3 form-control"
+
+  = label :city, :mayor, 'Mayor',:class=>'font-weight-bold'
+  = text_field :city,'mayor', :class =>"col-md-3 form-control"
+  
+  = label :city, :population,'Population',:class=>'font-weight-bold'
+  = number_field :city, 'population', :class =>"col-md-3 form-control"
+  
+  = label :country, :country_name,'Country',:class=>'font-weight-bold'
+  = text_field  :country, 'country_name',:class =>"col-md-3 form-control"
+
+  
+  = label :city, :isCostal, 'By Sea' ,:class=>'font-weight-bold'
+  = check_box :city,'isCostal',:class =>'form-check'
+  
+  %div.form-group
+  = submit_tag 'Save Changes', :class => 'btn btn-primary'
+
+%div.form-group
+= link_to 'Back', cities_path,:class=>'font-weight-bold'
