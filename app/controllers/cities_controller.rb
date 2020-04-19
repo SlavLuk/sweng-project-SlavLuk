@@ -20,14 +20,10 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
   
-    @city = City.new
+    # @city = City.new
   
   end
 
-  # GET /cities/1/edit
-  def edit
-     @city = City.find(params[:id])
-  end
 
   # POST /cities
   # POST /cities.json
@@ -51,8 +47,18 @@ class CitiesController < ApplicationController
   
     @city = City.find params[:id]
     @city.update_attributes!(city_params)
-    flash[:notice] = "#{@city.city_name} was successfully updated."
+    @country =Country.find(@city.country_id)
+    @country.update_attributes(country_params)
+    flash[:notice] = "#{@country.country_name} was successfully updated."
     redirect_to cities_path(@city)
+  end
+
+  
+  # GET /cities/1/edit
+  def edit
+     @city = City.find(params[:id])
+     @country =Country.find(@city.country_id)
+
   end
 
   # DELETE /cities/1
