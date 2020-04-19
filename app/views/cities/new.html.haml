@@ -1,10 +1,10 @@
 %h1 Create New City
-= form_tag cities_path(@city,@country), :method => :post do
+= form_tag cities_path, :method => :post do
 
  
   = label :city, :city_name,'City',:class=>'font-weight-bold'
   = text_field :city, 'city_name', :class =>"col-md-3 form-control"
-  
+
   = label :city, :mayor, 'Mayor',:class=>'font-weight-bold'
   = text_field :city,'mayor', :class =>"col-md-3 form-control"
   
