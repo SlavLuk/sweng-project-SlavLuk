@@ -1,14 +1,25 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :index, :edit, :update, :destroy]
 
+  def find_country
+
+  #  @cities = City.joins(:country).where(country:@city.country_id)
+
+      @city = City.find(params[:id])
+      #@country =Country.find(@city.country_id)
+      @cities = City.search_city(@city.country_id)
+
+  #   @movies = Movie.search_director(@movie.director)
+
+   # redirect_to cities_path
+ 
+  end
+
   # GET /cities
   # GET /cities.json
   def index
     @cities = City.joins(:country)
-    
-    # @cities = City.joins(:country).select('cities.city_name, countries.country_name')
  
-
   end
 
   # GET /cities/1

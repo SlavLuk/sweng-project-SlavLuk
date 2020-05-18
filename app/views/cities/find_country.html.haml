@@ -1,5 +1,5 @@
 
-%h1 Listing Cities
+%h1 Listing Cities in Same Country
 %table.table.table-striped
   %thead.thead-dark
     %tr
@@ -17,8 +17,6 @@
         %td= city.population
         %td= city.isCostal
         %td= city.country.country_name
-        %td= link_to 'Show', city
-        %td= link_to 'Edit', edit_city_path(city)
-        %td= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' }
+       
 %p
-= link_to 'Add new City', new_city_path,:class => 'btn btn-primary'
+= link_to 'Back', cities_path,:class => 'btn btn-primary'

@@ -14,6 +14,10 @@
 %p
   %strong Country:
   = @city.country.country_name
-= link_to 'Edit', edit_city_path(@city)
 
-= link_to 'Back', cities_path
+%p
+= link_to 'Back', cities_path,:class => 'btn btn-primary'
+
+= link_to 'Edit', edit_city_path,:class => 'btn btn-primary'
+
+= link_to 'Find Cities In Same Country', find_country_path,:class => 'btn btn-primary'

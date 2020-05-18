@@ -2,7 +2,7 @@
 = form_tag update_path(@city), :method => :put do
 
  
-  
+  %p
   = label :city, :city_name,'City'
   = text_field :city, 'city_name'
   
@@ -21,8 +21,8 @@
   = text_field :country,'country_name'
  
   
-  
+  %p
   = submit_tag 'Save Changes', :class => 'btn btn-primary'
 
-
-= link_to 'Back', cities_path
+  = link_to 'Back', cities_path, :class => 'btn btn-primary'
+  

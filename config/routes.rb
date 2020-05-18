@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   post '/cities/', to: 'cities#create', as: 'create'
 
+  get '/find_country/:id', to: 'cities#find_country', as: 'find_country'
+ 
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
