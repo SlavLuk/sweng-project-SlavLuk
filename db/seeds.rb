@@ -1,12 +1,6 @@
 
 
-# @countries = [{:country_name =>'USA'},{:country_name =>'England'},{:country_name =>'Ireland'}]
-
-# @countries.each do |country|
-#   Country.create!(country)
-# end
-
- country_1 = Country.create!(:country_name=>'Ireland')
+ country_1 = Country.create!(:country_name=>'Ireland'.upcase)
  country_2 = Country.create!(:country_name=>'USA')
  country_3 = Country.create!(:country_name=>'England')
 

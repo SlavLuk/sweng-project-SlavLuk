@@ -3,27 +3,19 @@ class CitiesController < ApplicationController
 
   def find_country
 
-  #  @cities = City.joins(:country).where(country:@city.country_id)
-
       @city = City.find(params[:id])
-      #@country =Country.find(@city.country_id)
+     
       @cities = City.search_city(@city.country_id)
-
-  #   @movies = Movie.search_director(@movie.director)
-
-   # redirect_to cities_path
  
   end
 
   # GET /cities
-  # GET /cities.json
   def index
     @cities = City.joins(:country)
  
   end
 
   # GET /cities/1
-  # GET /cities/1.json
   def show
      @city = City.find(params[:id])
   end
@@ -37,12 +29,16 @@ class CitiesController < ApplicationController
 
 
   # POST /cities
-  # POST /cities.json
   def create
 
-    @country = Country.create!(country_params)
+    @country = Country.find_by countries: params[:country]
+
+    if  @country == nil
+        @country = Country.create!(country_params)
+    end
   
-    
+
+     
     @city = City.create!(:city_name => city_params[:city_name], :mayor => city_params[:mayor], 
             :population => city_params[:population], :isCostal => city_params[:isCostal], :country =>@country)
 
@@ -53,7 +49,6 @@ class CitiesController < ApplicationController
   end
 
   # PATCH/PUT /cities/1
-  # PATCH/PUT /cities/1.json
   def update
   
     @city = City.find params[:id]
