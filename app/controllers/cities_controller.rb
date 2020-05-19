@@ -11,8 +11,10 @@ class CitiesController < ApplicationController
 
   # GET /cities
   def index
-    @cities = City.joins(:country)
- 
+
+    # Retreives cities and join countries order by country name
+    @cities = City.joins(:country).merge(Country.order(country_name: :desc))
+           
   end
 
   # GET /cities/1
@@ -31,9 +33,10 @@ class CitiesController < ApplicationController
   # POST /cities
   def create
 
+    # Checks if country exists in database if it does use it
     @country = Country.find_by country_name: country_params[:country_name].upcase
 
-    if  @country == nil
+    if  @country == nil # if there is no country in database create a new one
 
         @country = Country.create!(country_params)
     end
@@ -51,10 +54,11 @@ class CitiesController < ApplicationController
   def update
   
     @city = City.find params[:id]
-    @country =Country.find(@city.country_id)
+  
     @city.update_attributes!(city_params)
-    @country.update_attributes(country_params)
+  
     flash[:notice] = "#{@city.city_name} was successfully updated."
+
     redirect_to cities_path(@city)
   end
 
