@@ -34,7 +34,8 @@ class CitiesController < ApplicationController
     @country = Country.find_by country_name: country_params[:country_name].upcase
 
     if  @country == nil
-        @country = Country.create!(country_params[:country_name].upcase)
+
+        @country = Country.create!(country_params)
     end
       
     @city = City.create!(:city_name => city_params[:city_name], :mayor => city_params[:mayor], 
