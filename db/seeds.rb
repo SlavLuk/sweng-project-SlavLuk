@@ -1,8 +1,8 @@
 
 
  country_1 = Country.create!(:country_name=>'Ireland'.upcase)
- country_2 = Country.create!(:country_name=>'USA')
- country_3 = Country.create!(:country_name=>'England')
+ country_2 = Country.create!(:country_name=>'USA'.upcase)
+ country_3 = Country.create!(:country_name=>'England'.upcase)
 
 city = City.create!(:city_name => 'Galway', :mayor => 'Peter Larkin', 
             :population => 75000, :isCostal => true, :country =>country_1)

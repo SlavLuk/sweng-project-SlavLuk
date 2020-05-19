@@ -31,14 +31,12 @@ class CitiesController < ApplicationController
   # POST /cities
   def create
 
-    @country = Country.find_by countries: params[:country]
+    @country = Country.find_by country_name: country_params[:country_name].upcase
 
     if  @country == nil
-        @country = Country.create!(country_params)
+        @country = Country.create!(country_params[:country_name].upcase)
     end
-  
-
-     
+      
     @city = City.create!(:city_name => city_params[:city_name], :mayor => city_params[:mayor], 
             :population => city_params[:population], :isCostal => city_params[:isCostal], :country =>@country)
 
