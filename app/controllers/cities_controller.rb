@@ -13,7 +13,7 @@ class CitiesController < ApplicationController
   def index
 
     # Retreives cities and join countries order by country name
-    @cities = City.joins(:country).merge(Country.order(country_name: :desc))
+    @cities = City.joins(:country).merge(Country.order(country_name: :asc))
            
   end
 
@@ -33,6 +33,13 @@ class CitiesController < ApplicationController
   # POST /cities
   def create
 
+    begin
+
+    # Raise exception if country name are nil, blank
+    if country_params[:country_name].blank?
+        raise StandardError.new " country name can't be blank"
+    end
+
     # Checks if country exists in database if it does use it
     @country = Country.find_by country_name: country_params[:country_name].upcase
 
@@ -47,6 +54,14 @@ class CitiesController < ApplicationController
     flash[:notice] = "#{@city.city_name} was successfully created."
 
     redirect_to cities_path
+
+    rescue Exception =>e
+    
+     flash[:notice] = "Sorry, #{e.message} ."
+    
+     redirect_to new_city_path
+
+    end
   
   end
 
