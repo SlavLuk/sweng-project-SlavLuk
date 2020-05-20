@@ -12,8 +12,17 @@ class CitiesController < ApplicationController
   # GET /cities
   def index
 
-    # Retreives cities and join countries order by country name
-    @cities = City.joins(:country).merge(Country.order(country_name: :asc))
+     sort = params[:sort]
+     
+     if sort == 'country_name'  # Retreives cities and join countries order by country name
+     
+       @cities = City.joins(:country).merge(Country.order(country_name: :asc))
+
+     else
+
+        @cities = City.joins(:country)
+
+     end
            
   end
 

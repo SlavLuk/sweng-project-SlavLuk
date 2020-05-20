@@ -7,7 +7,7 @@
       %th Mayor
       %th Population
       %th By Sea
-      %th Country
+      %th= link_to 'Country', cities_path(:sort => 'country_name')
       %th{colspan: "3"}
   %tbody
     - @cities.each do |city|

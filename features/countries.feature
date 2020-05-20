@@ -8,13 +8,13 @@ Background: cities in database
 
   Given the following cities exist:
   
-  | city_name | mayor       | population | by_sea | country |
-  | London    | Boris Johns | 7500000    |  false | England |
-  | Liverpool |             | 3000000    |  true  | England |
-  | Galway    | Pat Larkin  | 75000      |  true  | Ireland |
-  | Cork      | John Smith  | 350000     |  true  | Ireland |
-  | Tampa     |             | 100000     |  true  | USA     |
-  | New York  | Leo Govanni | 1000000    |  true  | USA     |
+  | city_name | mayor       | population | isCostal | country |
+  | London    | Boris Johns | 7500000    |  false   | England |
+  | Liverpool |             | 3000000    |  true    | England |
+  | Galway    | Pat Larkin  | 75000      |  true    | Ireland |
+  | Cork      | John Smith  | 350000     |  true    | Ireland |
+  | Tampa     |             | 100000     |  true    | USA     |
+  | New York  | Leo Govanni | 1000000    |  true    | USA     |
   
 
 Scenario: add mayor to existing city
