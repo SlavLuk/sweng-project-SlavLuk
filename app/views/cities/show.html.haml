@@ -1,19 +1,19 @@
 %p
 %p
   %strong City name:
-  = @city_country[0].city_name
+  = @city.city_name
 %p
   %strong Mayor:
-  = @city_country[0].mayor
+  = @city.mayor
 %p
   %strong Population:
-  = @city_country[0].population
+  = @city.population
 %p
   %strong By Sea:
-  = @city_country[0].isCostal
-%p
-  %strong Country:
-  = @city_country[0].country.country_name
+  = @city.isCostal
+-# %p
+-#   %strong Country:
+-#   = @city.country.country_name
 
 %p
 = link_to 'Back', cities_path,:class => 'btn btn-primary'

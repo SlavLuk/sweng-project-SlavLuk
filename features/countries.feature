@@ -23,22 +23,12 @@ Scenario: add mayor to existing city
   And  I press "Update City Info"
   Then the mayor of "Liverpool" should be "Jürgen Klopp"
 
-
-
-  Given the following cities exist:
-  
-  | city_name | mayor       | population | isCostal | country |
-  | London    | Boris Johns | 7500000    |  false   | ENGLAND |
-  | Liverpool |             | 3000000    |  true    | ENGLAND |
-  | Galway    | Pat Larkin  | 75000      |  true    | IRELAND |
-  | Cork      | John Smith  | 350000     |  true    | IRELAND |
-  | Tampa     |             | 100000     |  true    | USA     |
-  | New York  | Leo Govanni | 1000000    |  true    | USA     |
+@load-seed-data @US49
 
 Scenario: find cities in same country
   Given I am on the details page for "Galway"
   When  I follow "Find Cities In Same Country"
-  Then  I should be on the Listing Cities in Same Country for  "Galway"
-  And   I should see "Cork"
-  But   I should not see "Liverpool"
+  Then  I should be on the Listing Cities in Same Country for "Galway"
+  And   I should see "IRELAND"
+  But   I should not see "ENGLAND"
 
