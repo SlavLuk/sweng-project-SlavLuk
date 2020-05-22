@@ -16,7 +16,7 @@
         %td= city.mayor
         %td= city.population
         %td= city.isCostal
-        %td= city.country.country_name
+        %td= Country.find(city.country_id).country_name
        
 %p
 = link_to 'Back', cities_path,:class => 'btn btn-primary'

@@ -10,17 +10,29 @@ module NavigationHelpers
   #
   # step definition in web_steps.rb
   #
+
   def path_to(page_name)
+
     case page_name
 
-    when /^the home\s?page$/
-      '/'
+    when /^the (City Info) home\s?page$/ then '/cities'
+      
+    when /^the edit page for "(.*)"$/i # I go to the edit page for "Liverpool"
+    edit_city_path(City.find_by_city_name($1))
+
+    
+    when /^the details page for "(.*)"$/i  # I am on the details page for "Liverpool"
+    city_path(City.find_by_city_name($1))
+
+    when /^the Listing Cities in Same Country for "(.*)"$/i  # I am on the page for same country
+    find_country_path(City.find_by_city_name($1))
+    
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+    
+      when /^(.*)'s profile page$/i
+        user_profile_path(User.find_by_login($1))
 
     else
       begin

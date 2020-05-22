@@ -28,7 +28,13 @@ class CitiesController < ApplicationController
 
   # GET /cities/1
   def show
+   
      @city = City.find(params[:id])
+
+     @city_country = City.joins(:country).where('cities.id' =>@city.id)
+   
+    
+    
   end
 
   # GET /cities/new
@@ -83,15 +89,15 @@ class CitiesController < ApplicationController
   
     flash[:notice] = "#{@city.city_name} was successfully updated."
 
-    redirect_to cities_path(@city)
+    redirect_to city_path(@city)
   end
 
   
   # GET /cities/1/edit
   def edit
-     @city = City.find(params[:id])
-     @country =Country.find(@city.country_id)
 
+      @city = City.find(params[:id])
+   
   end
 
   # DELETE /cities/1
