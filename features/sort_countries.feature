@@ -15,9 +15,15 @@ Background: countries have been added to database
   
 
   And I am on the City Info home page
+  
  @load-seed-data @US49
 Scenario: sort countries alphabetically
   When I follow "Country"
   Then I should see "ENGLAND" before "IRELAND"
+
+@load-seed-data @US49
+Scenario: sort population alphabetically
+  When I follow "Population"
+  Then I should see "Galway" before "Tampa"
 
 

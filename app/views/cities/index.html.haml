@@ -5,7 +5,7 @@
     %tr
       %th{scope: "col"} City name
       %th Mayor
-      %th Population
+      %th= link_to 'Population', cities_path(:sort => 'population')
       %th By Sea
       %th= link_to 'Country', cities_path(:sort => 'country_name')
       %th{colspan: "3"}

@@ -18,6 +18,10 @@ class CitiesController < ApplicationController
      
        @cities = City.joins(:country).merge(Country.order(country_name: :asc))
 
+     elsif sort == 'population' # Retreives cities and join countries order by population 
+
+      @cities = City.joins(:country).merge(City.order(population: :asc))
+
      else
 
         @cities = City.joins(:country)
@@ -34,12 +38,6 @@ class CitiesController < ApplicationController
     
   end
 
-  # GET /cities/new
-  def new
-  
-    # @city = City.new
-  
-  end
 
 
   # POST /cities
