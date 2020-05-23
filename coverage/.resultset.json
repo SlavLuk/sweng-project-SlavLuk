@@ -64,12 +64,6 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           null,
@@ -198,7 +192,7 @@
         }
       }
     },
-    "timestamp": 1590199573
+    "timestamp": 1590277393
   },
   "RSpec": {
     "coverage": {
@@ -225,7 +219,7 @@
           null,
           1,
           null,
-          0,
+          1,
           null,
           null,
           null,
@@ -239,12 +233,23 @@
           1,
           null,
           1,
-          0,
+          1,
           null,
           null,
           null,
           null
         ]
+      },
+      "/workspace/sweng-project-SlavLuk/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
       "/workspace/sweng-project-SlavLuk/app/controllers/cities_controller.rb": {
         "lines": [
@@ -276,23 +281,18 @@
           null,
           0,
           null,
+          0,
+          null,
+          0,
+          null,
           null,
           0,
           null,
           0,
           null,
           null,
-          null,
-          null,
-          null,
           0,
           null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          0,
           null,
           null,
           null,
@@ -389,19 +389,8 @@
         ],
         "branches": {
         }
-      },
-      "/workspace/sweng-project-SlavLuk/app/controllers/application_controller.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1590187810
+    "timestamp": 1590277379
   }
 }
