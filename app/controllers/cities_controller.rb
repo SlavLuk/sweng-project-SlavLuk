@@ -30,9 +30,6 @@ class CitiesController < ApplicationController
   def show
    
      @city = City.find(params[:id])
-
-    #  @city_country = City.joins(:country).where('cities.id' =>@city.id)
-   
     
     
   end
