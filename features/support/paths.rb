@@ -19,7 +19,9 @@ module NavigationHelpers
       
     when /^the edit page for "(.*)"$/i # I go to the edit page for "Liverpool"
     edit_city_path(City.find_by_city_name($1))
-
+    
+    when /^the Create New City\s?page$/ 
+    new_city_path(City.find_by_city_name($1))
     
     when /^the details page for "(.*)"$/i  # I am on the details page for "Liverpool"
     city_path(City.find_by_city_name($1))

@@ -14,7 +14,6 @@ Background: countries have been added to database
   | USA          |
   
 
-
   And I am on the City Info home page
  @load-seed-data @US49
 Scenario: sort countries alphabetically
