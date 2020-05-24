@@ -32,4 +32,23 @@ describe CitiesController, type: 'controller' do
             end 
            end
         end
+  describe "#create a city and country" do
+
+      it "should add a new city and country to database and redirect to the cities page" do
+         
+            original = City.count
+
+            post :create ,{
+                           :city=>{:id=>1, :city_name => 'Dublin', :mayor => 'Ryan Air', :population => 1500000, 
+                           :isCostal => true },:country=>{:country_name=>"Ireland"}
+                          }
+
+            expect(original+1).to eq(City.count)
+
+            expect(response).to redirect_to :cities
+
+            expect(flash[:notice]).to eq("Dublin was successfully created.")
+      end
+      
     end
+end
