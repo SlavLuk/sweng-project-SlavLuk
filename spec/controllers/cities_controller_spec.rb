@@ -11,6 +11,9 @@ describe CitiesController, type: 'controller' do
                        :population => 75000, :isCostal => true, :country_id=>@fake_country.id),
                          double(City, :id=>2,  :city_name => 'Cork', :mayor => 'Paddy Smith', 
                        :population => 350000, :isCostal => true, :country_id=>@fake_country.id)]
+
+      @fake_city_deleted = double(City, :id=>1, :city_name => 'Dublin', :mayor => 'Ryan Air', 
+                       :population => 1500000, :isCostal => true, :country_id=>@fake_country.id)
         end
     
   describe "#same country" do
@@ -71,6 +74,23 @@ describe CitiesController, type: 'controller' do
         get :show, {:id => @fake_cities[0].id} 
 
 
+      end
+    end
+
+    describe "#destroy " do
+  
+      it "should delete the selected city " do
+       
+        allow(City).to receive(:find).and_return(@fake_city_deleted)
+
+        expect(@fake_city_deleted).to receive(:destroy)
+           
+        delete :destroy, {:id => @fake_city_deleted.id} 
+
+        expect(flash[:notice]).to eq("City 'Dublin' was successfully deleted.")
+        
+        expect(response).to redirect_to :cities
+      
       end
     end
 end

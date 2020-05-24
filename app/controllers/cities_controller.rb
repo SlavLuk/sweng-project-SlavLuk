@@ -100,8 +100,8 @@ class CitiesController < ApplicationController
    
     @city = City.find params[:id]
     @city.destroy
-    flash[:notice] = "City '#{@city.city_name} ' was successfully deleted."
-    redirect_to cities_path(@city)
+    flash[:notice] = "City '#{@city.city_name}' was successfully deleted."
+    redirect_to cities_path
   end
 
   private
