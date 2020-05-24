@@ -62,6 +62,20 @@ describe CitiesController, type: 'controller' do
 
 
       end
+       it "should throw an exeption if country name is empty " do
+      
+          post :create ,{
+                           :city=>{:id=>1, :city_name => 'Dublin', :mayor => 'Ryan Air', :population => 1500000, 
+                           :isCostal => true },:country=>{:country_name=>""}
+                          }
+
+
+          expect(response).to redirect_to :new_city
+
+          expect(flash[:notice]).to eq("Sorry,  country name can't be blank .")
+
+
+      end
     end
 
     describe "#show" do
